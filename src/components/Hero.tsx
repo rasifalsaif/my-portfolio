@@ -14,13 +14,14 @@ export default function Hero() {
       <div className="absolute w-[600px] h-[600px] bg-sky-500/10 blur-[150px] rounded-full -top-40 -left-40 animate-pulse"></div>
       <div className="absolute w-[500px] h-[500px] bg-purple-500/10 blur-[150px] rounded-full -bottom-20 -right-20"></div>
 
-      <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
+      <div className="max-w-6xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center relative z-10">
         
         {/* LEFT CONTENT */}
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
+          className="order-2 lg:order-1"
         >
           <motion.div
             initial={{ opacity: 0 }}
@@ -43,9 +44,9 @@ export default function Hero() {
             transition={{ delay: 0.4 }}
             className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1]"
           >
-            Hi, I'm <br />
+            Hi, I&apos;m <br />
             <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-              Abdullah Al Saif
+              <span className="inline-block">Abdullah</span> <span className="inline-block">Al Saif</span>
             </span>
           </motion.h1>
 
@@ -64,13 +65,14 @@ export default function Hero() {
             transition={{ delay: 0.8 }}
             className="flex flex-wrap gap-5"
           >
-            <motion.button 
+            <motion.a 
+              href="#projects"
               whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(56, 189, 248, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-sky-500 rounded-full font-bold flex items-center gap-2 transition-all"
+              className="px-8 py-4 bg-sky-500 rounded-full font-bold flex items-center gap-2 transition-all cursor-pointer"
             >
               View My Work <ArrowRight size={20} />
-            </motion.button>
+            </motion.a>
 
             <motion.button 
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
@@ -83,13 +85,13 @@ export default function Hero() {
         </motion.div>
 
         {/* RIGHT (MULTI-LAYERED CIRCLE DESIGN) */}
-        <div className="flex justify-center items-center relative py-10 lg:py-0">
+        <div className="flex justify-center items-center relative py-10 lg:py-0 order-1 lg:order-2">
           
           <motion.div 
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 1 }}
-            className="relative w-72 h-72 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] group"
+            className="relative w-64 h-64 sm:w-96 sm:h-96 lg:w-[480px] lg:h-[480px] group"
           >
             
             {/* LAYER 0: Background Pulse Glow (Behind Image) */}

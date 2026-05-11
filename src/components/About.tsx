@@ -6,7 +6,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <section id="about" className="py-24 bg-black text-white overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
         
         {/* LEFT IMAGE */}
         <motion.div 

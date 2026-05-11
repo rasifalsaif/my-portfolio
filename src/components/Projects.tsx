@@ -22,46 +22,55 @@ const GithubIcon = ({ size = 18 }: { size?: number }) => (
 
 const projects = [
   {
-    title: "NexFlow SaaS",
-    description: "A high-performance multi-tenant platform designed for rapid business scaling and real-time operational oversight.",
-    image: "/p1.jpg",
-    tech: ["Next.js", "PostgreSQL", "Stripe"],
+    title: "Learn-Stack - Enterprise LMS Platform",
+    description: "Architected a high-performance LMS using Next.js 16 and React 19, optimized for Core Web Vitals.",
+    image: "/learn.png",
+    tech: ["Next.js", "PostgreSQL", "Stripe", "AWS S3", "Arcjet"],
     features: [
-      "Multi-tenant Architecture",
-      "Real-time Analytics Engine",
-      "Stripe Connect Integration",
+      "Drag-and-drop course builder with GSAP",
+      "Stripe payment & AWS S3 integration",
+      "Hardened security with Arcjet & Zod",
     ],
     accent: "from-sky-400 to-cyan-400",
-    category: "SaaS Platform",
+    category: "LMS Platform",
     icon: Layers,
+    frontend: "https://github.com/rasifalsaif/learn-stack",
+    backend: "https://github.com/rasifalsaif/learn-stack",
+    live: "https://learn-stack-bot9.vercel.app/",
   },
   {
-    title: "CryptoSphere",
-    description: "A cutting-edge Web3 trading interface focusing on real-time synchronization and gas-optimized transactions.",
-    image: "/p2.jpg",
-    tech: ["Web3.js", "Solidity", "Tailwind"],
+    title: "SkillBridge - Expert Tutoring Platform",
+    description: "A robust platform connecting students with expert tutors through a scalable backend and intuitive interface.",
+    image: "/skillbridge.png",
+    tech: ["Node.js", "Express", "MongoDB", "JWT", "React"],
     features: [
-      "Web3 Wallet Connectivity",
-      "Orderbook Synchronization",
-      "Gas Fee Optimization",
+      "Multi-category Tutor Matching System",
+      "Dynamic Session Booking & Management",
+      "Comprehensive Admin Oversight Dashboard",
     ],
     accent: "from-purple-500 to-pink-500",
-    category: "Web3 App",
+    category: "EdTech Platform",
     icon: Globe,
+    frontend: "https://github.com/rasifalsaif/skillbridge-frontend",
+    backend: "https://github.com/rasifalsaif/skillbridge-backend",
+    live: "https://skillbridge-frontend-sigma.vercel.app/",
   },
   {
-    title: "Pulse Analytics",
-    description: "An enterprise-grade data visualization suite that transforms complex serverless data into actionable insights.",
-    image: "/p3.jpg",
-    tech: ["D3.js", "AWS Lambda", "Node.js"],
+    title: "Greenmart - Multi-Vendor Ecommerce",
+    description: "A sophisticated 5-tier role-based ecommerce and delivery ecosystem with real-time fulfillment and vendor analytics.",
+    image: "/green.png",
+    tech: ["Next.js", "TypeScript", "Prisma", "Stripe", "Tailwind CSS"],
     features: [
-      "Custom Visualization Library",
-      "Serverless Data Processing",
-      "Export as PDF/Excel",
+      "5-tier Role-Based Access (Admin to Customer)",
+      "Real-time Delivery Assignment System",
+      "Stripe Webhook-driven Payment Processing",
     ],
     accent: "from-rose-500 to-orange-500",
-    category: "Data Tool",
+    category: "Ecommerce Ecosystem",
     icon: Smartphone,
+    frontend: "https://github.com/rasifalsaif/green-mart",
+    backend: "https://github.com/rasifalsaif/green-mart",
+    live: "https://multivendor-phi.vercel.app/",
   },
 ];
 
@@ -71,7 +80,7 @@ export default function Projects() {
       {/* Background Glows */}
       <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-sky-500/5 blur-[150px] rounded-full pointer-events-none"></div>
 
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* HEADER */}
         <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-20">
@@ -182,22 +191,36 @@ export default function Projects() {
                   </div>
 
                   {/* BUTTONS */}
-                  <div className="flex gap-4 mt-auto">
-                    <motion.button 
+                  <div className="grid grid-cols-2 gap-3 mt-auto">
+                    <motion.a 
+                      href={project.frontend}
+                      target="_blank"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-white/5 border border-white/10 text-sm font-bold text-white hover:bg-white/10 transition-all"
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all"
                     >
-                      <GithubIcon size={18} /> Code
-                    </motion.button>
+                      <GithubIcon size={14} /> Frontend
+                    </motion.a>
 
-                    <motion.button 
+                    <motion.a 
+                      href={project.backend}
+                      target="_blank"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`flex-1 flex items-center justify-center gap-2 py-3 rounded-2xl bg-gradient-to-r ${project.accent} text-black text-sm font-bold shadow-lg transition-all`}
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all"
                     >
-                      <ExternalLink size={18} /> Demo
-                    </motion.button>
+                      <GithubIcon size={14} /> Backend
+                    </motion.a>
+
+                    <motion.a 
+                      href={project.live}
+                      target="_blank"
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                      className={`col-span-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r ${project.accent} text-black text-[12px] font-bold shadow-lg transition-all`}
+                    >
+                      <ExternalLink size={16} /> Live Demo
+                    </motion.a>
                   </div>
                 </div>
               </motion.div>
