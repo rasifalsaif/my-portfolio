@@ -108,7 +108,7 @@ export default function Projects() {
               transition={{ delay: 0.2 }}
               className="mt-6 text-gray-500 text-lg leading-relaxed"
             >
-              A selection of my recent work where I've tackled complex engineering 
+              A selection of my recent work where I&apos;ve tackled complex engineering 
               challenges and delivered high-impact solutions.
             </motion.p>
           </div>
@@ -134,8 +134,12 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="group relative flex flex-col h-full bg-zinc-900/30 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-sky-500/30 transition-all duration-500"
+                whileHover={{ y: -10, transition: { duration: 0.4, ease: "easeOut" } }}
+                className="group relative flex flex-col h-full bg-zinc-900/30 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-sky-500/30 hover:shadow-[0_20px_50px_rgba(56,189,248,0.1)] transition-all duration-500"
               >
+                {/* Background Hover Glow */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}></div>
+                
                 {/* IMAGE AREA */}
                 <div className="relative h-64 overflow-hidden p-4">
                   <div className="relative h-full w-full rounded-[2rem] overflow-hidden shadow-2xl">

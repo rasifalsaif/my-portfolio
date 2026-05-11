@@ -112,7 +112,7 @@ export default function Contact() {
 
           <div className="mt-16 pt-8 border-t border-white/5">
             <p className="text-sm text-gray-500 font-medium italic">
-              "Great things in business are never done by one person. They're done by a team of people."
+              &ldquo;Great things in business are never done by one person. They&apos;re done by a team of people.&rdquo;
             </p>
           </div>
         </motion.div>
