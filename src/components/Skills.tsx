@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Code, Layout, Database, Server, Terminal, Cpu, CheckCircle2 } from "lucide-react";
+import { Layout, Database, Server, Terminal, Cpu, CheckCircle2 } from "lucide-react";
 
 const skills = [
   {
@@ -28,28 +28,31 @@ const skills = [
   },
 ];
 
-const containerVariants = {
-  hidden: { opacity: 0 },
-  visible: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const itemVariants = {
-  hidden: { y: 20, opacity: 0 },
-  visible: {
-    y: 0,
-    opacity: 1,
-    transition: {
-      duration: 0.5,
-    },
-  },
-};
-
 export default function Skills() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 30, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  };
+
   return (
     <section id="skills" className="py-24 relative overflow-hidden bg-black text-white">
       {/* Background Decorative Elements */}
@@ -61,43 +64,41 @@ export default function Skills() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* HEADER */}
-        <div className="text-center mb-20">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="text-center mb-20"
+        >
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            variants={itemVariants}
             className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-sky-500/10 border border-sky-500/20 text-sky-400 text-xs font-bold uppercase tracking-widest mb-4"
           >
             <Cpu size={14} />
             Capabilities
           </motion.div>
           <motion.h2 
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
+            variants={itemVariants}
             className="text-4xl md:text-5xl font-bold tracking-tight"
           >
             Technical <span className="text-sky-400">Arsenal</span>
           </motion.h2>
           <motion.p
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
+            variants={itemVariants}
             className="mt-4 text-gray-500 max-w-2xl mx-auto"
           >
             A comprehensive suite of tools and technologies I leverage to build 
             production-ready applications that scale.
           </motion.p>
-        </div>
+        </motion.div>
 
         {/* SKILLS GRID */}
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
+          viewport={{ once: true, amount: 0.1 }}
           className="grid grid-cols-1 md:grid-cols-3 gap-8"
         >
           {skills.map((skill, index) => {

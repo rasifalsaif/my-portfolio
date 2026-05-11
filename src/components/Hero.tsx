@@ -5,6 +5,33 @@ import Image from "next/image";
 import { ArrowRight, Download, Code, Cloud, Database } from "lucide-react";
 
 export default function Hero() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { y: 20, opacity: 0 },
+    visible: {
+      y: 0,
+      opacity: 1,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  };
+
+  const name = "Abdullah Al Saif";
+  const nameLetters = Array.from(name);
+
   return (
     <section
       id="home"
@@ -18,15 +45,13 @@ export default function Hero() {
         
         {/* LEFT CONTENT */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut" }}
+          variants={containerVariants}
+          initial="hidden"
+          animate="visible"
           className="order-2 lg:order-1"
         >
           <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
+            variants={itemVariants}
             className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 mb-8"
           >
             <span className="relative flex h-2 w-2">
@@ -39,37 +64,45 @@ export default function Hero() {
           </motion.div>
 
           <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
+            variants={itemVariants}
             className="text-5xl md:text-7xl font-bold mb-8 leading-[1.1]"
           >
             Hi, I&apos;m <br />
             <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-              <span className="inline-block">Abdullah</span> <span className="inline-block">Al Saif</span>
+              {nameLetters.map((letter, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.5 + index * 0.05,
+                    type: "spring",
+                    stiffness: 150,
+                  }}
+                  className="inline-block"
+                >
+                  {letter === " " ? "\u00A0" : letter}
+                </motion.span>
+              ))}
             </span>
           </motion.h1>
 
           <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
+            variants={itemVariants}
             className="text-gray-400 max-w-lg mb-12 text-lg md:text-xl leading-relaxed"
           >
             I engineer scalable, high-performance applications that bring together powerful backend systems and seamless user experiences.
           </motion.p>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.8 }}
+            variants={itemVariants}
             className="flex flex-wrap gap-5"
           >
             <motion.a 
               href="#projects"
-              whileHover={{ scale: 1.05, boxShadow: "0 0 20px rgba(56, 189, 248, 0.4)" }}
+              whileHover={{ scale: 1.05, boxShadow: "0 0 30px rgba(56, 189, 248, 0.4)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-sky-500 rounded-full font-bold flex items-center gap-2 transition-all cursor-pointer"
+              className="px-8 py-4 bg-sky-500 rounded-full font-bold flex items-center gap-2 transition-all cursor-pointer text-black"
             >
               View My Work <ArrowRight size={20} />
             </motion.a>

@@ -75,6 +75,30 @@ const projects = [
 ];
 
 export default function Projects() {
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.1,
+      },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 30 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        stiffness: 100,
+        damping: 20,
+      },
+    },
+  };
+
   return (
     <section id="projects" className="py-24 relative overflow-hidden bg-black text-white">
       {/* Background Glows */}
@@ -83,29 +107,28 @@ export default function Projects() {
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         
         {/* HEADER */}
-        <div className="flex flex-col md:flex-row justify-between items-end gap-6 mb-20">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          className="flex flex-col md:flex-row justify-between items-end gap-6 mb-20"
+        >
           <div className="max-w-2xl">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              variants={itemVariants}
               className="text-sky-400 font-bold uppercase tracking-[0.3em] text-xs mb-4"
             >
               Case Studies
             </motion.div>
             <motion.h2 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
+              variants={itemVariants}
               className="text-4xl md:text-5xl font-bold tracking-tight"
             >
               Featured <span className="text-sky-400">Projects</span>
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0 }}
-              whileInView={{ opacity: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.2 }}
+              variants={itemVariants}
               className="mt-6 text-gray-500 text-lg leading-relaxed"
             >
               A selection of my recent work where I&apos;ve tackled complex engineering 
@@ -114,6 +137,7 @@ export default function Projects() {
           </div>
 
           <motion.a
+            variants={itemVariants}
             whileHover={{ x: 5 }}
             href="#"
             className="group flex items-center gap-2 text-sky-400 font-semibold text-sm transition-all"
@@ -121,19 +145,22 @@ export default function Projects() {
             Explore All Projects 
             <ArrowRight size={18} className="group-hover:translate-x-1 transition-transform" />
           </motion.a>
-        </div>
+        </motion.div>
 
         {/* PROJECTS GRID */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10"
+        >
           {projects.map((project, i) => {
             const Icon = project.icon;
             return (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
+                variants={itemVariants}
                 whileHover={{ y: -10, transition: { duration: 0.4, ease: "easeOut" } }}
                 className="group relative flex flex-col h-full bg-zinc-900/30 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-sky-500/30 hover:shadow-[0_20px_50px_rgba(56,189,248,0.1)] transition-all duration-500"
               >
@@ -230,7 +257,7 @@ export default function Projects() {
               </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
