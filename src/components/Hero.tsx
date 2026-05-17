@@ -69,13 +69,29 @@ export default function Hero() {
           >
             Hi, I&apos;m <br />
             <span className="bg-gradient-to-r from-sky-400 via-blue-500 to-purple-500 text-transparent bg-clip-text">
-              {nameLetters.map((letter, index) => (
+              {Array.from("Abdullah").map((letter, index) => (
                 <motion.span
                   key={index}
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{
                     delay: 0.5 + index * 0.05,
+                    type: "spring",
+                    stiffness: 150,
+                  }}
+                  className="inline-block"
+                >
+                  {letter}
+                </motion.span>
+              ))}
+              <br />
+              {Array.from("Al Saif").map((letter, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{
+                    delay: 0.5 + ("Abdullah".length + index) * 0.05,
                     type: "spring",
                     stiffness: 150,
                   }}
