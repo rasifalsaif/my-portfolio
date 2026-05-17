@@ -107,13 +107,16 @@ export default function Hero() {
               View My Work <ArrowRight size={20} />
             </motion.a>
 
-            <motion.button 
+            <motion.a 
+              href="/Abdullah_Al_Saif_Resume .pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               whileHover={{ scale: 1.05, backgroundColor: "rgba(255, 255, 255, 0.05)" }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border border-white/10 rounded-full text-white font-bold flex items-center gap-2 transition-all"
+              className="px-8 py-4 border border-white/10 rounded-full text-white font-bold flex items-center gap-2 transition-all cursor-pointer"
             >
-              Download CV <Download size={20} />
-            </motion.button>
+              Resume <Download size={20} />
+            </motion.a>
           </motion.div>
         </motion.div>
 
