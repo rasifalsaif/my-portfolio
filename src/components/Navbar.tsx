@@ -31,7 +31,7 @@ export default function Navbar() {
           whileHover={{ scale: 1.05 }}
           className="font-bold text-xl tracking-tighter uppercase"
         >
-          Abdullah<span className="text-sky-400">.</span>
+          Abdullah Al Saif<span className="text-sky-400">.</span>
         </motion.h1>
 
         <div className="hidden md:flex gap-8 text-[11px] font-bold uppercase tracking-widest">

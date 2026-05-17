@@ -91,7 +91,8 @@ export default function Contact() {
                         whileHover={{ y: -3, color: "#38bdf8" }} 
                         href="https://www.linkedin.com/in/rasifalsaif" 
                         target="_blank" 
-                        className="text-gray-400 transition-colors"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 transition-colors cursor-pointer"
                       >
                         <LinkedinIcon size={18} />
                       </motion.a>
@@ -99,7 +100,8 @@ export default function Contact() {
                         whileHover={{ y: -3, color: "#38bdf8" }} 
                         href="https://github.com/rasifalsaif" 
                         target="_blank" 
-                        className="text-gray-400 transition-colors"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 transition-colors cursor-pointer"
                       >
                         <GithubIcon size={18} />
                       </motion.a>
@@ -107,7 +109,8 @@ export default function Contact() {
                         whileHover={{ y: -3, color: "#38bdf8" }} 
                         href="https://www.facebook.com/rasifalsaif" 
                         target="_blank" 
-                        className="text-gray-400 transition-colors"
+                        rel="noopener noreferrer"
+                        className="text-gray-400 transition-colors cursor-pointer"
                       >
                         <FacebookIcon size={18} />
                       </motion.a>

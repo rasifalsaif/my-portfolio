@@ -165,10 +165,10 @@ export default function Projects() {
                 className="group relative flex flex-col h-full bg-zinc-900/30 border border-white/5 rounded-[2.5rem] overflow-hidden hover:border-sky-500/30 hover:shadow-[0_20px_50px_rgba(56,189,248,0.1)] transition-all duration-500"
               >
                 {/* Background Hover Glow */}
-                <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500`}></div>
+                <div className={`absolute inset-0 bg-gradient-to-br ${project.accent} opacity-0 group-hover:opacity-[0.03] transition-opacity duration-500 pointer-events-none`}></div>
                 
                 {/* IMAGE AREA */}
-                <div className="relative h-64 overflow-hidden p-4">
+                <div className="relative h-64 overflow-hidden p-4 z-10">
                   <div className="relative h-full w-full rounded-[2rem] overflow-hidden shadow-2xl">
                     <Image
                       src={project.image}
@@ -192,7 +192,7 @@ export default function Projects() {
                 </div>
 
                 {/* CONTENT AREA */}
-                <div className="p-8 flex flex-col flex-grow">
+                <div className="p-8 flex flex-col flex-grow relative z-10">
                   <div className="mb-6">
                     <h3 className="text-2xl font-bold text-white mb-3 group-hover:text-sky-400 transition-colors">
                       {project.title}
@@ -226,9 +226,10 @@ export default function Projects() {
                     <motion.a 
                       href={project.frontend}
                       target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all"
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all cursor-pointer"
                     >
                       <GithubIcon size={14} /> Frontend
                     </motion.a>
@@ -236,9 +237,10 @@ export default function Projects() {
                     <motion.a 
                       href={project.backend}
                       target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all"
+                      className="flex items-center justify-center gap-2 py-2.5 rounded-xl bg-white/5 border border-white/10 text-[11px] font-bold text-white hover:bg-white/10 transition-all cursor-pointer"
                     >
                       <GithubIcon size={14} /> Backend
                     </motion.a>
@@ -246,9 +248,10 @@ export default function Projects() {
                     <motion.a 
                       href={project.live}
                       target="_blank"
+                      rel="noopener noreferrer"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
-                      className={`col-span-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r ${project.accent} text-black text-[12px] font-bold shadow-lg transition-all`}
+                      className={`col-span-2 flex items-center justify-center gap-2 py-3 rounded-xl bg-gradient-to-r ${project.accent} text-black text-[12px] font-bold shadow-lg transition-all cursor-pointer`}
                     >
                       <ExternalLink size={16} /> Live Demo
                     </motion.a>
